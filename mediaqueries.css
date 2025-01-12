@@ -1,0 +1,109 @@
+/* Media Queries for Responsive Design */
+
+/* Small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  header {
+    font-size: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+
+  #introduction img {
+    width: 80px;
+  }
+
+  .jenisAset {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .jenisAset div {
+    flex: 1 1 100%;
+  }
+
+  #target ul,
+  #target ol {
+    padding-left: 1rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media only screen and (max-width: 768px) {
+  header {
+    font-size: 1.75rem;
+    padding: 1.75rem 1rem;
+  }
+
+  #asset {
+    padding: 1.5rem 1rem;
+  }
+
+  .jenisAset {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .jenisAset div {
+    flex: 1 1 calc(50% - 1rem);
+  }
+}
+
+/* Large devices (laptops/desktops, 1024px and down) */
+@media only screen and (max-width: 1024px) {
+  header {
+    font-size: 2rem;
+    padding: 2rem 1rem;
+  }
+
+  #introduction {
+    padding: 1.5rem;
+  }
+
+  #asset {
+    padding: 2rem 1rem;
+  }
+
+  .jenisAset div {
+    flex: 1 1 calc(33.33% - 1rem);
+  }
+}
+
+/* Large devices (television) */
+@media only screen and (min-width: 1024px) {
+  header {
+    font-size: 2rem;
+    padding: 2rem 1rem;
+  }
+
+  #introduction {
+    padding: 1.5rem;
+  }
+
+  #asset {
+    padding: 2rem 1rem;
+  }
+
+  .jenisAset div {
+    flex: 1 1 calc(33.33% - 1rem);
+  }
+}
+
+/* Extra small devices (phones, 400px and down) */
+@media only screen and (max-width: 400px) {
+  header {
+    font-size: 1.25rem;
+    padding: 1rem 0.5rem;
+  }
+
+  #introduction img {
+    width: 70px;
+  }
+
+  #target ul,
+  #target ol {
+    font-size: 0.9rem;
+  }
+
+  .total {
+    font-size: 1rem;
+  }
+}

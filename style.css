@@ -1,0 +1,132 @@
+/* Global Styles */
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #becfe1;
+  color: #fff;
+}
+
+/* Introduction Section */
+#introduction {
+  padding: 2rem 1rem;
+  background-color: #ffffff;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#introduction .card {
+  display: inline-block;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+#introduction img {
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+/* Asset Section */
+#asset {
+  padding: 2rem 1rem;
+  background-color: #becfe1;
+}
+
+#asset h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.jenisAset {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.jenisAset div {
+  flex: 1 1 calc(200px);
+  background-color: #fff;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.jenisAset p {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.total {
+  text-align: center;
+  margin-top: 2rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Target Section */
+#target {
+  padding: 2rem 1rem;
+  background-color: #ffffff;
+}
+
+#target h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#target div {
+  margin-bottom: 2rem;
+}
+
+#target h3 {
+  margin-left: 5%;
+}
+
+#target ul,
+#target ol {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #343a40;
+  color: #ffffff;
+  margin-top: 2rem;
+}
