@@ -3,10 +3,19 @@ const bbri = 425838;
 const bbca = 976463;
 const asset = {
   saham: bbri + bbca,
-  crypto: 1764710,
-  bpr: 7000000,
+  bpr: 8000000,
   emas: 6015000,
   komunal: 1500000,
+};
+
+const total = asset.saham + asset.bpr + asset.emas + asset.komunal;
+const target = {
+  darat: Math.floor(((asset.bpr + asset.komunal) / 10000000) * 100),
+  asset1: Math.floor((total / 100000000) * 100),
+  asset2: Math.floor((total / 500000000) * 100),
+  asset3: Math.floor((total / 1000000000) * 100),
+  asset4: Math.floor((total / 2000000000) * 100),
+  asset5: Math.floor((total / 3000000000) * 100),
 };
 
 const d = new Date();
@@ -27,15 +36,12 @@ const months = [
 ];
 const month = d.getMonth();
 
-const total =
-  asset.saham + asset.crypto + asset.bpr + asset.emas + asset.komunal;
-
 // Fungsi untuk memperbarui nilai di dalam HTML
 function updateAssetDisplay() {
   console.log("Updating values...");
   document.getElementById("bpr").textContent =
     asset.bpr.toLocaleString("id-ID");
-  console.log("Updating bpr...");
+  console.log("Updating komunal bpr...");
   document.getElementById("komunal").textContent =
     asset.komunal.toLocaleString("id-ID");
   console.log("Updating bpr...");
@@ -45,17 +51,30 @@ function updateAssetDisplay() {
   console.log("Updating bbca...");
   document.getElementById("total").textContent = total.toLocaleString("id-ID");
   console.log("Updating total...");
+  document.getElementById("targetDarat").textContent =
+    target.darat.toLocaleString("id-ID");
+  console.log("Updating target dana darurat...");
+  document.getElementById("targetAsset1").textContent =
+    target.asset1.toLocaleString("id-ID");
+  console.log("Updating target 100jt...");
+  document.getElementById("targetAsset2").textContent =
+    target.asset2.toLocaleString("id-ID");
+  console.log("Updating target 500jt...");
+  document.getElementById("targetAsset3").textContent =
+    target.asset3.toLocaleString("id-ID");
+  console.log("Updating target 1M...");
+  document.getElementById("targetAsset4").textContent =
+    target.asset4.toLocaleString("id-ID");
+  console.log("Updating target 2M...");
+  document.getElementById("targetAsset5").textContent =
+    target.asset5.toLocaleString("id-ID");
+  console.log("Updating target 3M...");
 }
 
 // ----------------------Wheel Chart-----------------------
-const xValues = ["Saham", "Dana Darurat", "Emas", "Crypto"];
-const yValues = [
-  asset.saham,
-  asset.bpr + asset.komunal,
-  asset.emas,
-  asset.crypto,
-];
-const barColors = ["#b91d47", "#00aba9", "#2b5797", "#e8c3b9", "#1e7145"];
+const xValues = ["Saham", "Dana Darurat", "Emas"];
+const yValues = [asset.saham, asset.bpr + asset.komunal, asset.emas];
+const barColors = ["#b91d47", "#00aba9", "#2b5797", "#e8c3b9"];
 
 new Chart("myChart", {
   type: "pie",
