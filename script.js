@@ -4,13 +4,13 @@ const bbca = 976463;
 const asset = {
   saham: bbri + bbca,
   bpr: 8000000,
-  emas: 6015000,
-  komunal: 1500000,
+  emas: 6212000,
+  komunal: 4000000,
 };
 
 const total = asset.saham + asset.bpr + asset.emas + asset.komunal;
 const target = {
-  darat: Math.floor(((asset.bpr + asset.komunal) / 10000000) * 100),
+  darat: "Done",
   asset1: Math.floor((total / 100000000) * 100),
   asset2: Math.floor((total / 500000000) * 100),
   asset3: Math.floor((total / 1000000000) * 100),
