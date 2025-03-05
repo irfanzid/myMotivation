@@ -92,8 +92,22 @@ header {
 
 .total {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 0rem;
   font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.liquid {
+  text-align: center;
+  margin-top: 2rem;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.nonLiquid {
+  text-align: center;
+  margin-top: 0rem;
+  font-weight: 400;
   font-size: 1.2rem;
 }
 

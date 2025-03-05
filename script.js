@@ -7,8 +7,9 @@ const asset = {
   emas: 6212000,
   komunal: 4000000,
 };
-
+const liquid = asset.bpr + asset.komunal;
 const total = asset.saham + asset.bpr + asset.emas + asset.komunal;
+const nonLiquid = total - liquid;
 const target = {
   darat: "Done",
   asset1: Math.floor((total / 100000000) * 100),
@@ -49,6 +50,12 @@ function updateAssetDisplay() {
   console.log("Updating bbri...");
   document.getElementById("bbca").textContent = bbca.toLocaleString("id-ID");
   console.log("Updating bbca...");
+  document.getElementById("liquid").textContent =
+    liquid.toLocaleString("id-ID");
+  console.log("Updating liquid...");
+  document.getElementById("nonLiquid").textContent =
+    nonLiquid.toLocaleString("id-ID");
+  console.log("Updating non liquid...");
   document.getElementById("total").textContent = total.toLocaleString("id-ID");
   console.log("Updating total...");
   document.getElementById("targetDarat").textContent =
