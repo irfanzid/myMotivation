@@ -5,7 +5,7 @@ const asset = {
   saham: bbri + bbca,
   bpr: 8000000,
   emas: 6212000,
-  komunal: 4000000,
+  komunal: 9100000,
 };
 const liquid = asset.bpr + asset.komunal;
 const total = asset.saham + asset.bpr + asset.emas + asset.komunal;
@@ -79,8 +79,12 @@ function updateAssetDisplay() {
 }
 
 // ----------------------Wheel Chart-----------------------
-const xValues = ["Saham", "Dana Darurat", "Emas"];
-const yValues = [asset.saham, asset.bpr + asset.komunal, asset.emas];
+const xValues = ["Saham (%)", "Dana Darurat (%)", "Emas (%)"];
+const yValues = [
+  Math.floor((asset.saham / total) * 100),
+  Math.floor(((asset.bpr + asset.komunal) / total) * 100),
+  Math.floor((asset.emas / total) * 100),
+];
 const barColors = ["#b91d47", "#00aba9", "#2b5797", "#e8c3b9"];
 
 new Chart("myChart", {
