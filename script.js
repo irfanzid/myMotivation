@@ -5,7 +5,7 @@ const asset = {
   saham: bbri + bbca,
   bpr: 8000000,
   emas: 7772300,
-  komunal: 11600000,
+  komunal: 13400000,
 };
 const liquid = asset.bpr + asset.komunal;
 const total = asset.saham + asset.bpr + asset.emas + asset.komunal;
