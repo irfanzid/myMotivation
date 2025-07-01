@@ -5,7 +5,7 @@ const asset = {
   saham: bbri + bbca,
   bpr: 8000000,
   emas: 7772300,
-  komunal: 13400000,
+  komunal: 16500000,
 };
 const liquid = asset.bpr + asset.komunal;
 const total = asset.saham + asset.bpr + asset.emas + asset.komunal;
@@ -79,16 +79,21 @@ function updateAssetDisplay() {
 }
 
 // ----------------------Wheel Chart-----------------------
-const xValues = ["Saham (%)", "Dana Darurat (%)", "Emas (%)"];
-const yValues = [
-  Math.floor((asset.saham / total) * 100),
-  Math.floor(((asset.bpr + asset.komunal) / total) * 100),
-  Math.floor((asset.emas / total) * 100),
+const xValues = [
+  "Deposito (Juta)",
+  "Dana Darurat (Juta)",
+  "Emas (Juta)",
+  "Saham (Juta)",
 ];
-const barColors = ["#b91d47", "#00aba9", "#2b5797", "#e8c3b9"];
-
+const yValues = [
+  Math.floor(asset.komunal / 1000000),
+  Math.floor(asset.bpr / 1000000),
+  Math.floor(asset.emas / 1000000),
+  Math.floor(asset.saham / 1000000),
+];
+const barColors = ["#2F5249", "#437057", "#97B067", "#FFBF78"];
 new Chart("myChart", {
-  type: "pie",
+  type: "bar",
   data: {
     labels: xValues,
     datasets: [
@@ -99,6 +104,7 @@ new Chart("myChart", {
     ],
   },
   options: {
+    legend: { display: false },
     title: {
       display: true,
       text: `My asset in ${months[month]} ${year}`,
