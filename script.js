@@ -4,8 +4,8 @@ const bbca = 976463;
 const asset = {
   saham: bbri + bbca,
   bpr: 8000000,
-  emas: 7772300,
-  komunal: 16500000,
+  emas: 8412500 + 4858720,
+  komunal: 16800000,
 };
 const liquid = asset.bpr + asset.komunal;
 const total = asset.saham + asset.bpr + asset.emas + asset.komunal;
