@@ -1,14 +1,17 @@
 // Set Data
-const bbri = 425838;
-const bbca = 976463;
+const bbri = 762000;
+const bbca = 1500000;
+const bmri = 3942000;
 const asset = {
-  saham: bbri + bbca,
+  saham: bbri + bbca + bmri,
+  RDN_wallet: 5523011,
   bpr: 8000000,
-  emas: 8412500 + 4858720,
-  komunal: 16800000,
+  emas: 9147700 + 5373440,
+  komunal: 8600000,
 };
-const liquid = asset.bpr + asset.komunal;
-const total = asset.saham + asset.bpr + asset.emas + asset.komunal;
+const liquid = asset.bpr + asset.komunal + asset.RDN_wallet;
+const total =
+  asset.saham + asset.bpr + asset.emas + asset.komunal + asset.RDN_wallet;
 const nonLiquid = total - liquid;
 const target = {
   darat: "Done",
@@ -18,6 +21,14 @@ const target = {
   asset4: Math.floor((total / 2000000000) * 100),
   asset5: Math.floor((total / 3000000000) * 100),
 };
+
+const persen_saham = (asset.saham / total) * 100;
+const persen_darat = (liquid / total) * 100;
+const persen_emas = (asset.emas / total) * 100;
+
+const persen_bbri = (bbri / asset.saham) * 100;
+const persen_bbca = (bbca / asset.saham) * 100;
+const persen_bmri = (bmri / asset.saham) * 100;
 
 const d = new Date();
 const year = d.getFullYear();
@@ -45,11 +56,15 @@ function updateAssetDisplay() {
   console.log("Updating komunal bpr...");
   document.getElementById("komunal").textContent =
     asset.komunal.toLocaleString("id-ID");
-  console.log("Updating bpr...");
+  document.getElementById("rdn").textContent =
+    asset.RDN_wallet.toLocaleString("id-ID");
+  console.log("Updating rdn...");
   document.getElementById("bbri").textContent = bbri.toLocaleString("id-ID");
   console.log("Updating bbri...");
   document.getElementById("bbca").textContent = bbca.toLocaleString("id-ID");
   console.log("Updating bbca...");
+  document.getElementById("bmri").textContent = bmri.toLocaleString("id-ID");
+  console.log("Updating bmri...");
   document.getElementById("liquid").textContent =
     liquid.toLocaleString("id-ID");
   console.log("Updating liquid...");
@@ -76,6 +91,30 @@ function updateAssetDisplay() {
   document.getElementById("targetAsset5").textContent =
     target.asset5.toLocaleString("id-ID");
   console.log("Updating target 3M...");
+  document.getElementById("persen_saham").textContent = persen_saham
+    .toFixed(2)
+    .toLocaleString("id-ID");
+  console.log("Updating perseb saham...");
+  document.getElementById("persen_darat").textContent = persen_darat
+    .toFixed(2)
+    .toLocaleString("id-ID");
+  console.log("Updating persen darat...");
+  document.getElementById("persen_emas").textContent = persen_emas
+    .toFixed(2)
+    .toLocaleString("id-ID");
+  console.log("Updating persen emas...");
+  document.getElementById("persen_bbri").textContent = persen_bbri
+    .toFixed(2)
+    .toLocaleString("id-ID");
+  console.log("Updating persen bbri...");
+  document.getElementById("persen_bbca").textContent = persen_bbca
+    .toFixed(2)
+    .toLocaleString("id-ID");
+  console.log("Updating persen bbca...");
+  document.getElementById("persen_bmri").textContent = persen_bmri
+    .toFixed(2)
+    .toLocaleString("id-ID");
+  console.log("Updating persen bmri...");
 }
 
 // ----------------------Wheel Chart-----------------------
@@ -87,7 +126,7 @@ const xValues = [
 ];
 const yValues = [
   Math.floor(asset.komunal / 1000000),
-  Math.floor(asset.bpr / 1000000),
+  Math.floor((asset.bpr + asset.RDN_wallet) / 1000000),
   Math.floor(asset.emas / 1000000),
   Math.floor(asset.saham / 1000000),
 ];
