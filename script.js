@@ -1,12 +1,12 @@
 // Set Data
-const bbri = 762000;
-const bbca = 1500000;
-const bmri = 3942000;
+const bbri = 3150000;
+const bbca = 2175000;
+const bmri = 3645000;
 const asset = {
   saham: bbri + bbca + bmri,
-  RDN_wallet: 5523011,
+  RDN_wallet: 2201536,
   bpr: 8000000,
-  emas: 9147700 + 5373440,
+  emas: 10000000 + 5830441,
   komunal: 8600000,
 };
 const liquid = asset.bpr + asset.komunal + asset.RDN_wallet;
@@ -118,19 +118,13 @@ function updateAssetDisplay() {
 }
 
 // ----------------------Wheel Chart-----------------------
-const xValues = [
-  "Deposito (Juta)",
-  "Dana Darurat (Juta)",
-  "Emas (Juta)",
-  "Saham (Juta)",
-];
+const xValues = ["Dana Darurat (Juta)", "Emas (Juta)", "Saham (Juta)"];
 const yValues = [
-  Math.floor(asset.komunal / 1000000),
-  Math.floor((asset.bpr + asset.RDN_wallet) / 1000000),
+  Math.floor((asset.bpr + asset.RDN_wallet + asset.komunal) / 1000000),
   Math.floor(asset.emas / 1000000),
   Math.floor(asset.saham / 1000000),
 ];
-const barColors = ["#2F5249", "#437057", "#97B067", "#FFBF78"];
+const barColors = ["#437057", "#97B067", "#FFBF78"];
 new Chart("myChart", {
   type: "bar",
   data: {
