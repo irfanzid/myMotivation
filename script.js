@@ -1,17 +1,23 @@
 // Set Data
-const bbri = 3150000;
-const bbca = 2175000;
-const bmri = 3645000;
+const bbri = 3312000;
+const bbca = 3938000;
+const bmri = 3870000;
 const asset = {
   saham: bbri + bbca + bmri,
-  RDN_wallet: 2201536,
+  RDN_wallet: 44992,
   bpr: 8000000,
-  emas: 10000000 + 5830441,
+  emas: 10596700 + 6041894,
   komunal: 8600000,
+  rdpu: 686768,
 };
-const liquid = asset.bpr + asset.komunal + asset.RDN_wallet;
+const liquid = asset.bpr + asset.komunal + asset.RDN_wallet + asset.rdpu;
 const total =
-  asset.saham + asset.bpr + asset.emas + asset.komunal + asset.RDN_wallet;
+  asset.saham +
+  asset.bpr +
+  asset.emas +
+  asset.komunal +
+  asset.RDN_wallet +
+  asset.rdpu;
 const nonLiquid = total - liquid;
 const target = {
   darat: "Done",
@@ -59,6 +65,9 @@ function updateAssetDisplay() {
   document.getElementById("rdn").textContent =
     asset.RDN_wallet.toLocaleString("id-ID");
   console.log("Updating rdn...");
+  document.getElementById("rdpu").textContent =
+    asset.rdpu.toLocaleString("id-ID");
+  console.log("Updating rdpu...");
   document.getElementById("bbri").textContent = bbri.toLocaleString("id-ID");
   console.log("Updating bbri...");
   document.getElementById("bbca").textContent = bbca.toLocaleString("id-ID");

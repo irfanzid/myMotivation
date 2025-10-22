@@ -136,6 +136,16 @@ header {
   max-width: 600px;
 }
 
+/* Sayembara */
+.achieveImg {
+  display: flex;
+  justify-content: space-around;
+}
+.achieveImg img {
+  margin-top: 10px;
+  width: 35%;
+}
+
 /* Footer */
 footer {
   text-align: center;
