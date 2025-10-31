@@ -1,14 +1,15 @@
 // Set Data
-const bbri = 3312000;
-const bbca = 3938000;
-const bmri = 3870000;
+const bbri = 3980000;
+const bbca = 4262500;
+const bmri = 4248000;
+const icbp = 870000;
 const asset = {
-  saham: bbri + bbca + bmri,
-  RDN_wallet: 44992,
+  saham: bbri + bbca + bmri + icbp,
+  RDN_wallet: 414023,
   bpr: 8000000,
-  emas: 10596700 + 6041894,
+  emas: 8566000 + 5776288,
   komunal: 8600000,
-  rdpu: 686768,
+  rdpu: 1522488,
 };
 const liquid = asset.bpr + asset.komunal + asset.RDN_wallet + asset.rdpu;
 const total =
@@ -35,6 +36,7 @@ const persen_emas = (asset.emas / total) * 100;
 const persen_bbri = (bbri / asset.saham) * 100;
 const persen_bbca = (bbca / asset.saham) * 100;
 const persen_bmri = (bmri / asset.saham) * 100;
+const persen_icbp = (icbp / asset.saham) * 100;
 
 const d = new Date();
 const year = d.getFullYear();
@@ -74,6 +76,8 @@ function updateAssetDisplay() {
   console.log("Updating bbca...");
   document.getElementById("bmri").textContent = bmri.toLocaleString("id-ID");
   console.log("Updating bmri...");
+  document.getElementById("icbp").textContent = icbp.toLocaleString("id-ID");
+  console.log("Updating icbp...");
   document.getElementById("liquid").textContent =
     liquid.toLocaleString("id-ID");
   console.log("Updating liquid...");
@@ -121,6 +125,10 @@ function updateAssetDisplay() {
     .toLocaleString("id-ID");
   console.log("Updating persen bbca...");
   document.getElementById("persen_bmri").textContent = persen_bmri
+    .toFixed(2)
+    .toLocaleString("id-ID");
+  console.log("Updating persen bmri...");
+  document.getElementById("persen_icbp").textContent = persen_icbp
     .toFixed(2)
     .toLocaleString("id-ID");
   console.log("Updating persen bmri...");
