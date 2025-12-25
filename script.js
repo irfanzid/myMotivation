@@ -1,15 +1,16 @@
 // Set Data
-const bbri = 3820000;
-const bbca = 4212500;
-const bmri = 4500000;
-const icbp = 2572500;
+const bbri = 4147000;
+const bbca = 4025000;
+const bmri = 4657500;
+const icbp = 3370000;
+const tldn = 1380000;
 const asset = {
-  saham: bbri + bbca + bmri + icbp,
-  RDN_wallet: 756842 + 721080 + 716027,
+  saham: bbri + bbca + bmri + icbp + tldn,
+  RDN_wallet: 1012437 + 340510,
   bpr: 8000000,
-  emas: 8880000 + 5822705,
+  emas: 9559000 + 6248190,
   komunal: 8600000,
-  rdpu: 2424927,
+  rdpu: 5144075,
 };
 const liquid = asset.bpr + asset.komunal + asset.RDN_wallet + asset.rdpu;
 const total =
@@ -37,6 +38,7 @@ const persen_bbri = (bbri / asset.saham) * 100;
 const persen_bbca = (bbca / asset.saham) * 100;
 const persen_bmri = (bmri / asset.saham) * 100;
 const persen_icbp = (icbp / asset.saham) * 100;
+const persen_tldn = (tldn / asset.saham) * 100;
 
 const d = new Date();
 const year = d.getFullYear();
@@ -78,6 +80,9 @@ function updateAssetDisplay() {
   console.log("Updating bmri...");
   document.getElementById("icbp").textContent = icbp.toLocaleString("id-ID");
   console.log("Updating icbp...");
+  document.getElementById("tldn").textContent = tldn.toLocaleString("id-ID");
+  console.log("Updating tldn...");
+
   document.getElementById("liquid").textContent =
     liquid.toLocaleString("id-ID");
   console.log("Updating liquid...");
@@ -131,7 +136,11 @@ function updateAssetDisplay() {
   document.getElementById("persen_icbp").textContent = persen_icbp
     .toFixed(2)
     .toLocaleString("id-ID");
-  console.log("Updating persen bmri...");
+  console.log("Updating persen icbp...");
+  document.getElementById("persen_tldn").textContent = persen_tldn
+    .toFixed(2)
+    .toLocaleString("id-ID");
+  console.log("Updating persen tldn...");
 }
 
 // ----------------------Wheel Chart-----------------------
