@@ -1,16 +1,16 @@
 // Set Data
-const bbri = 4147000;
-const bbca = 4025000;
-const bmri = 4657500;
-const icbp = 3370000;
-const tldn = 1380000;
+const bbri = 4202000;
+const bbca = 4037500;
+const bmri = 4491000;
+const icbp = 3220000;
+const tldn = 3300000;
 const asset = {
   saham: bbri + bbca + bmri + icbp + tldn,
-  RDN_wallet: 1012437 + 340510,
+  RDN_wallet: 240700,
   bpr: 8000000,
-  emas: 9559000 + 6248190,
+  emas: 9989000 + 197773,
   komunal: 8600000,
-  rdpu: 5144075,
+  rdpu: 10710086,
 };
 const liquid = asset.bpr + asset.komunal + asset.RDN_wallet + asset.rdpu;
 const total =
