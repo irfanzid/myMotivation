@@ -161,7 +161,7 @@ function updateAssetDisplay() {
 // ----------------------Wheel Chart-----------------------
 const xValues = ["Dana Darurat (Juta)", "Emas (Juta)", "Saham (Juta)"];
 const yValues = [
-  Math.floor((asset.RDN_wallet + asset.komunal) / 1000000),
+  Math.floor((asset.RDN_wallet + asset.komunal + asset.rdpu) / 1000000),
   Math.floor(asset.emas / 1000000),
   Math.floor(asset.saham / 1000000),
 ];
