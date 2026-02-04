@@ -1,29 +1,30 @@
 // Set Data
-const bbri = 4202000;
-const bbca = 4037500;
-const bmri = 4491000;
-const icbp = 3220000;
-const tldn = 3300000;
-
-// Trading
-const bnbr = 1138505 + 207110;
-const jgle = 572056 + 102153;
-const elty = 104156 + 556348;
-const isap = 510765;
+const bbri = 4257000;
+const bbca = 3900000;
+const bmri = 5500000;
+const icbp = 3320000;
+const tldn = 3250000;
 
 // Asset
 const asset = {
   saham: bbri + bbca + bmri + icbp + tldn,
-  RDN_wallet: 94000,
-  emas: 9989000 + 197773,
+  RDN_wallet: 173722,
+  emas: 11135000,
   komunal: 8600000,
-  rdpu: 15961250,
+  rdpu: 15638739,
+  obligasi: 674405,
 };
 
 // liquid asset
 const liquid = asset.komunal + asset.RDN_wallet + asset.rdpu;
++asset.obligasi;
 const total =
-  asset.saham + asset.emas + asset.komunal + asset.RDN_wallet + asset.rdpu;
+  asset.saham +
+  asset.emas +
+  asset.komunal +
+  asset.RDN_wallet +
+  asset.rdpu +
+  asset.obligasi;
 const nonLiquid = total - liquid;
 const target = {
   darat: "Done",
@@ -35,7 +36,7 @@ const target = {
 };
 
 // Trading
-const trading = bnbr + jgle + elty + isap;
+const trading = 5657472;
 const persen_trading = (trading / total) * 100;
 console.log(total + "-------------------------");
 console.log(trading + "|||||||||||||||||");
@@ -77,6 +78,9 @@ function updateAssetDisplay() {
   document.getElementById("rdn").textContent =
     asset.RDN_wallet.toLocaleString("id-ID");
   console.log("Updating rdn...");
+  document.getElementById("obligasi").textContent =
+    asset.obligasi.toLocaleString("id-ID");
+  console.log("Updating obligasi...");
   document.getElementById("rdpu").textContent =
     asset.rdpu.toLocaleString("id-ID");
   console.log("Updating rdpu...");
