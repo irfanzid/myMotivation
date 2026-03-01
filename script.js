@@ -1,49 +1,52 @@
 // Set Data
-const bbri = 4257000;
-const bbca = 3900000;
-const bmri = 5500000;
-const icbp = 3320000;
-const tldn = 3250000;
+const bbri = 4301000;
+const bbca = 3587500;
+const bmri = 5802500;
+const icbp = 3140000;
+const tldn = 4488000;
 
 // Asset
 const asset = {
   saham: bbri + bbca + bmri + icbp + tldn,
-  RDN_wallet: 173722,
-  emas: 11135000,
+  RDN_wallet: 1135853,
+  emas: 11215000,
   komunal: 8600000,
-  rdpu: 15638739,
-  obligasi: 674405,
+  rdpu: 18623884,
+  obligasi: 674587,
 };
 
 // liquid asset
 const liquid = asset.komunal + asset.RDN_wallet + asset.rdpu;
 +asset.obligasi;
-const total =
+const current_asset =
   asset.saham +
   asset.emas +
   asset.komunal +
   asset.RDN_wallet +
   asset.rdpu +
   asset.obligasi;
-const nonLiquid = total - liquid;
+const nonLiquid = current_asset - liquid;
 const target = {
   darat: "Done",
-  asset1: Math.floor((total / 100000000) * 100),
-  asset2: Math.floor((total / 500000000) * 100),
-  asset3: Math.floor((total / 1000000000) * 100),
-  asset4: Math.floor((total / 2000000000) * 100),
-  asset5: Math.floor((total / 3000000000) * 100),
+  asset1: Math.floor((current_asset / 100000000) * 100),
+  asset2: Math.floor((current_asset / 500000000) * 100),
+  asset3: Math.floor((current_asset / 1000000000) * 100),
+  asset4: Math.floor((current_asset / 2000000000) * 100),
+  asset5: Math.floor((current_asset / 3000000000) * 100),
 };
 
 // Trading
-const trading = 5657472;
-const persen_trading = (trading / total) * 100;
-console.log(total + "-------------------------");
-console.log(trading + "|||||||||||||||||");
+const gain = 0;
+const lose = 29332;
+const realized = gain - lose;
+const trading = 5657472 + realized;
+const persen_trading = (trading / current_asset) * 100;
 
-const persen_saham = (asset.saham / total) * 100;
-const persen_darat = (liquid / total) * 100;
-const persen_emas = (asset.emas / total) * 100;
+const total = current_asset + trading;
+
+const persen_saham = (asset.saham / current_asset) * 100;
+const persen_darat = (liquid / current_asset) * 100;
+const persen_emas = (asset.emas / current_asset) * 100;
 
 const persen_bbri = (bbri / asset.saham) * 100;
 const persen_bbca = (bbca / asset.saham) * 100;
@@ -102,6 +105,14 @@ function updateAssetDisplay() {
     persen_trading.toLocaleString("id-ID");
   console.log("update persen trading...");
 
+  document.getElementById("gain").textContent = gain.toLocaleString("id-ID");
+  console.log("Updating gain...");
+  document.getElementById("lose").textContent = lose.toLocaleString("id-ID");
+  console.log("update lose...");
+  document.getElementById("realized").textContent =
+    realized.toLocaleString("id-ID");
+  console.log("update realized...");
+
   document.getElementById("liquid").textContent =
     liquid.toLocaleString("id-ID");
   console.log("Updating liquid...");
@@ -110,6 +121,9 @@ function updateAssetDisplay() {
   console.log("Updating non liquid...");
   document.getElementById("total").textContent = total.toLocaleString("id-ID");
   console.log("Updating total...");
+  document.getElementById("current_asset").textContent =
+    current_asset.toLocaleString("id-ID");
+  console.log("Updating current_asset...");
   document.getElementById("targetDarat").textContent =
     target.darat.toLocaleString("id-ID");
   console.log("Updating target dana darurat...");
