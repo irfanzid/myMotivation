@@ -1,23 +1,41 @@
 // Set Data
-const bbri = 4301000;
-const bbca = 3587500;
-const bmri = 5802500;
-const icbp = 3140000;
-const tldn = 4488000;
+const bbri = 3984000;
+const bbca = 3287500;
+const bmri = 5115000;
+const icbp = 2950000;
+const tldn = 8960000;
+
+// Set Data
+const ac_bbri = 4516764;
+const ac_bbca = 4033541;
+const ac_bmri = 4886318;
+const ac_icbp = 3397588;
+const ac_tldn = 9065578;
 
 // Asset
 const asset = {
   saham: bbri + bbca + bmri + icbp + tldn,
-  RDN_wallet: 1135853,
-  emas: 11215000,
-  komunal: 8600000,
-  rdpu: 18623884,
-  obligasi: 674587,
+  RDN_wallet: 564233 + 328429 + 1652475 + 540810,
+  emas: 10078000,
+  komunal: 0,
+  rdpu: 34234191,
+  obligasi: 668037,
 };
 
+const ac_asset =
+  ac_bbri +
+  ac_bbca +
+  ac_bmri +
+  ac_icbp +
+  ac_tldn +
+  asset.emas +
+  asset.komunal +
+  asset.RDN_wallet +
+  asset.rdpu +
+  asset.obligasi;
+
 // liquid asset
-const liquid = asset.komunal + asset.RDN_wallet + asset.rdpu;
-+asset.obligasi;
+const liquid = asset.komunal + asset.RDN_wallet + asset.rdpu + asset.obligasi;
 const current_asset =
   asset.saham +
   asset.emas +
@@ -36,13 +54,16 @@ const target = {
 };
 
 // Trading
-const gain = 0;
+const gain = 1476820 + 439449;
 const lose = 29332;
 const realized = gain - lose;
-const trading = 5657472 + realized;
+const trading = 5657472;
 const persen_trading = (trading / current_asset) * 100;
+const total_realized = gain - lose;
 
 const total = current_asset + trading;
+
+const persen_realized = (total_realized / ac_asset) * 100;
 
 const persen_saham = (asset.saham / current_asset) * 100;
 const persen_darat = (liquid / current_asset) * 100;
@@ -113,6 +134,11 @@ function updateAssetDisplay() {
     realized.toLocaleString("id-ID");
   console.log("update realized...");
 
+  document.getElementById("total_realized").textContent =
+    total_realized.toLocaleString("id-ID");
+  document.getElementById("persen_realized").textContent = persen_realized
+    .toFixed(2)
+    .toLocaleString("id-ID");
   document.getElementById("liquid").textContent =
     liquid.toLocaleString("id-ID");
   console.log("Updating liquid...");
