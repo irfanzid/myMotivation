@@ -1,48 +1,24 @@
 // Set Data
-const bbri = 3984000;
-const bbca = 3287500;
-const bmri = 5115000;
-const icbp = 2950000;
-const tldn = 8960000;
-
-// Set Data
-const ac_bbri = 4516764;
-const ac_bbca = 4033541;
-const ac_bmri = 4886318;
-const ac_icbp = 3397588;
-const ac_tldn = 9065578;
+const bbri = 11322000;
+const bbca = 6300000;
+const icbp = 2870000;
+const elty = 7339800;
+const viva = 960000;
+const pbrx = 420000;
+const wbsa = 391500;
+const isap = 316000;
 
 // Asset
 const asset = {
-  saham: bbri + bbca + bmri + icbp + tldn,
-  RDN_wallet: 564233 + 328429 + 1652475 + 540810,
-  emas: 10078000,
-  komunal: 0,
-  rdpu: 34234191,
-  obligasi: 668037,
+  saham: bbri + bbca + icbp + elty + viva + pbrx + wbsa + isap,
+  RDN_wallet: 30220478,
+  emas: 10363000,
+  rdpu: 10521030,
 };
 
-const ac_asset =
-  ac_bbri +
-  ac_bbca +
-  ac_bmri +
-  ac_icbp +
-  ac_tldn +
-  asset.emas +
-  asset.komunal +
-  asset.RDN_wallet +
-  asset.rdpu +
-  asset.obligasi;
-
 // liquid asset
-const liquid = asset.komunal + asset.RDN_wallet + asset.rdpu + asset.obligasi;
-const current_asset =
-  asset.saham +
-  asset.emas +
-  asset.komunal +
-  asset.RDN_wallet +
-  asset.rdpu +
-  asset.obligasi;
+const liquid = asset.RDN_wallet + asset.rdpu;
+const current_asset = asset.saham + asset.emas + asset.RDN_wallet + asset.rdpu;
 const nonLiquid = current_asset - liquid;
 const target = {
   darat: "Done",
@@ -53,27 +29,18 @@ const target = {
   asset5: Math.floor((current_asset / 3000000000) * 100),
 };
 
-// Trading
-const gain = 1476820 + 439449;
-const lose = 29332;
-const realized = gain - lose;
-const trading = 5657472;
-const persen_trading = (trading / current_asset) * 100;
-const total_realized = gain - lose;
-
-const total = current_asset + trading;
-
-const persen_realized = (total_realized / ac_asset) * 100;
-
 const persen_saham = (asset.saham / current_asset) * 100;
 const persen_darat = (liquid / current_asset) * 100;
 const persen_emas = (asset.emas / current_asset) * 100;
 
 const persen_bbri = (bbri / asset.saham) * 100;
 const persen_bbca = (bbca / asset.saham) * 100;
-const persen_bmri = (bmri / asset.saham) * 100;
 const persen_icbp = (icbp / asset.saham) * 100;
-const persen_tldn = (tldn / asset.saham) * 100;
+const persen_elty = (elty / asset.saham) * 100;
+const persen_viva = (viva / asset.saham) * 100;
+const persen_pbrx = (pbrx / asset.saham) * 100;
+const persen_wbsa = (wbsa / asset.saham) * 100;
+const persen_isap = (isap / asset.saham) * 100;
 
 const d = new Date();
 const year = d.getFullYear();
@@ -96,15 +63,11 @@ const month = d.getMonth();
 // Fungsi untuk memperbarui nilai di dalam HTML
 function updateAssetDisplay() {
   console.log("Updating values...");
-  document.getElementById("komunal").textContent =
-    asset.komunal.toLocaleString("id-ID");
-  console.log("Updating komunal");
+
   document.getElementById("rdn").textContent =
     asset.RDN_wallet.toLocaleString("id-ID");
   console.log("Updating rdn...");
-  document.getElementById("obligasi").textContent =
-    asset.obligasi.toLocaleString("id-ID");
-  console.log("Updating obligasi...");
+
   document.getElementById("rdpu").textContent =
     asset.rdpu.toLocaleString("id-ID");
   console.log("Updating rdpu...");
@@ -112,41 +75,25 @@ function updateAssetDisplay() {
   console.log("Updating bbri...");
   document.getElementById("bbca").textContent = bbca.toLocaleString("id-ID");
   console.log("Updating bbca...");
-  document.getElementById("bmri").textContent = bmri.toLocaleString("id-ID");
-  console.log("Updating bmri...");
   document.getElementById("icbp").textContent = icbp.toLocaleString("id-ID");
   console.log("Updating icbp...");
-  document.getElementById("tldn").textContent = tldn.toLocaleString("id-ID");
-  console.log("Updating tldn...");
+  document.getElementById("elty").textContent = elty.toLocaleString("id-ID");
+  console.log("Updating elty...");
+  document.getElementById("viva").textContent = viva.toLocaleString("id-ID");
+  console.log("Updating viva...");
+  document.getElementById("pbrx").textContent = pbrx.toLocaleString("id-ID");
+  console.log("Updating pbrx...");
+  document.getElementById("wbsa").textContent = wbsa.toLocaleString("id-ID");
+  console.log("Updating wbsa...");
+  document.getElementById("isap").textContent = isap.toLocaleString("id-ID");
+  console.log("Updating isap...");
 
-  document.getElementById("trading").textContent =
-    trading.toLocaleString("id-ID");
-  console.log("Updating trading...");
-  document.getElementById("persen_trading").textContent =
-    persen_trading.toLocaleString("id-ID");
-  console.log("update persen trading...");
-
-  document.getElementById("gain").textContent = gain.toLocaleString("id-ID");
-  console.log("Updating gain...");
-  document.getElementById("lose").textContent = lose.toLocaleString("id-ID");
-  console.log("update lose...");
-  document.getElementById("realized").textContent =
-    realized.toLocaleString("id-ID");
-  console.log("update realized...");
-
-  document.getElementById("total_realized").textContent =
-    total_realized.toLocaleString("id-ID");
-  document.getElementById("persen_realized").textContent = persen_realized
-    .toFixed(2)
-    .toLocaleString("id-ID");
   document.getElementById("liquid").textContent =
     liquid.toLocaleString("id-ID");
   console.log("Updating liquid...");
   document.getElementById("nonLiquid").textContent =
     nonLiquid.toLocaleString("id-ID");
   console.log("Updating non liquid...");
-  document.getElementById("total").textContent = total.toLocaleString("id-ID");
-  console.log("Updating total...");
   document.getElementById("current_asset").textContent =
     current_asset.toLocaleString("id-ID");
   console.log("Updating current_asset...");
@@ -188,24 +135,41 @@ function updateAssetDisplay() {
     .toFixed(2)
     .toLocaleString("id-ID");
   console.log("Updating persen bbca...");
-  document.getElementById("persen_bmri").textContent = persen_bmri
-    .toFixed(2)
-    .toLocaleString("id-ID");
-  console.log("Updating persen bmri...");
   document.getElementById("persen_icbp").textContent = persen_icbp
     .toFixed(2)
     .toLocaleString("id-ID");
   console.log("Updating persen icbp...");
-  document.getElementById("persen_tldn").textContent = persen_tldn
+
+  document.getElementById("persen_elty").textContent = persen_elty
     .toFixed(2)
     .toLocaleString("id-ID");
-  console.log("Updating persen tldn...");
+  console.log("Updating persen elty...");
+
+  document.getElementById("persen_viva").textContent = persen_viva
+    .toFixed(2)
+    .toLocaleString("id-ID");
+  console.log("Updating persen viva...");
+
+  document.getElementById("persen_pbrx").textContent = persen_pbrx
+    .toFixed(2)
+    .toLocaleString("id-ID");
+  console.log("Updating persen pbrx...");
+
+  document.getElementById("persen_wbsa").textContent = persen_wbsa
+    .toFixed(2)
+    .toLocaleString("id-ID");
+  console.log("Updating persen wbsa...");
+
+  document.getElementById("persen_isap").textContent = persen_isap
+    .toFixed(2)
+    .toLocaleString("id-ID");
+  console.log("Updating persen isap...");
 }
 
 // ----------------------Wheel Chart-----------------------
 const xValues = ["Dana Darurat (Juta)", "Emas (Juta)", "Saham (Juta)"];
 const yValues = [
-  Math.floor((asset.RDN_wallet + asset.komunal + asset.rdpu) / 1000000),
+  Math.floor((asset.RDN_wallet + asset.rdpu) / 1000000),
   Math.floor(asset.emas / 1000000),
   Math.floor(asset.saham / 1000000),
 ];
