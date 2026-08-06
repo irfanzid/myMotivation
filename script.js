@@ -1,19 +1,14 @@
 // Set Data
-const bbri = 11322000;
-const bbca = 6300000;
-const icbp = 2870000;
-const elty = 7339800;
-const viva = 960000;
-const pbrx = 420000;
-const wbsa = 391500;
-const isap = 316000;
+const bbri = 10336000;
+const bbca = 6350000;
+const elty = 26036400;
 
 // Asset
 const asset = {
-  saham: bbri + bbca + icbp + elty + viva + pbrx + wbsa + isap,
-  RDN_wallet: 30220478,
-  emas: 10363000,
-  rdpu: 10521030,
+  saham: bbri + bbca + elty,
+  RDN_wallet: 35988213,
+  emas: 9619000,
+  rdpu: 13959321,
 };
 
 // liquid asset
@@ -35,13 +30,7 @@ const persen_emas = (asset.emas / current_asset) * 100;
 
 const persen_bbri = (bbri / asset.saham) * 100;
 const persen_bbca = (bbca / asset.saham) * 100;
-const persen_icbp = (icbp / asset.saham) * 100;
 const persen_elty = (elty / asset.saham) * 100;
-const persen_viva = (viva / asset.saham) * 100;
-const persen_pbrx = (pbrx / asset.saham) * 100;
-const persen_wbsa = (wbsa / asset.saham) * 100;
-const persen_isap = (isap / asset.saham) * 100;
-
 const d = new Date();
 const year = d.getFullYear();
 const months = [
@@ -71,22 +60,15 @@ function updateAssetDisplay() {
   document.getElementById("rdpu").textContent =
     asset.rdpu.toLocaleString("id-ID");
   console.log("Updating rdpu...");
+
   document.getElementById("bbri").textContent = bbri.toLocaleString("id-ID");
   console.log("Updating bbri...");
+
   document.getElementById("bbca").textContent = bbca.toLocaleString("id-ID");
   console.log("Updating bbca...");
-  document.getElementById("icbp").textContent = icbp.toLocaleString("id-ID");
-  console.log("Updating icbp...");
+
   document.getElementById("elty").textContent = elty.toLocaleString("id-ID");
   console.log("Updating elty...");
-  document.getElementById("viva").textContent = viva.toLocaleString("id-ID");
-  console.log("Updating viva...");
-  document.getElementById("pbrx").textContent = pbrx.toLocaleString("id-ID");
-  console.log("Updating pbrx...");
-  document.getElementById("wbsa").textContent = wbsa.toLocaleString("id-ID");
-  console.log("Updating wbsa...");
-  document.getElementById("isap").textContent = isap.toLocaleString("id-ID");
-  console.log("Updating isap...");
 
   document.getElementById("liquid").textContent =
     liquid.toLocaleString("id-ID");
@@ -135,35 +117,11 @@ function updateAssetDisplay() {
     .toFixed(2)
     .toLocaleString("id-ID");
   console.log("Updating persen bbca...");
-  document.getElementById("persen_icbp").textContent = persen_icbp
-    .toFixed(2)
-    .toLocaleString("id-ID");
-  console.log("Updating persen icbp...");
 
   document.getElementById("persen_elty").textContent = persen_elty
     .toFixed(2)
     .toLocaleString("id-ID");
   console.log("Updating persen elty...");
-
-  document.getElementById("persen_viva").textContent = persen_viva
-    .toFixed(2)
-    .toLocaleString("id-ID");
-  console.log("Updating persen viva...");
-
-  document.getElementById("persen_pbrx").textContent = persen_pbrx
-    .toFixed(2)
-    .toLocaleString("id-ID");
-  console.log("Updating persen pbrx...");
-
-  document.getElementById("persen_wbsa").textContent = persen_wbsa
-    .toFixed(2)
-    .toLocaleString("id-ID");
-  console.log("Updating persen wbsa...");
-
-  document.getElementById("persen_isap").textContent = persen_isap
-    .toFixed(2)
-    .toLocaleString("id-ID");
-  console.log("Updating persen isap...");
 }
 
 // ----------------------Wheel Chart-----------------------
